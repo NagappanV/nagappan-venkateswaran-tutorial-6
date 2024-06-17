@@ -32,6 +32,10 @@ public class MainActivity extends FragmentActivity implements ToolbarFragment.To
         setContentView(binding.getRoot());
     }
     public void onButtonClick(int fontsize, String text) {
-
+        TextFragment textFragment =
+                (TextFragment)
+                        getSupportFragmentManager().findFragmentById(R.id.text_fragment);
+        assert textFragment != null;
+        textFragment.changeTextProperties(fontsize, text);
     }
 }
