@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.naga.examplefragmentapp.databinding.FragmentToolbarBinding;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link ToolbarFragment#newInstance} factory method to
@@ -55,10 +57,18 @@ public class ToolbarFragment extends Fragment {
         }
     }
 
+    private FragmentToolbarBinding binding;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_toolbar, container, false);
+        binding = FragmentToolbarBinding.inflate(inflater, container, false);
+        return binding.getRoot();
+    }
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 }
